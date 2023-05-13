@@ -1,0 +1,31 @@
+// @import url('./_variables.scss');
+// @use './../../utils/variables';
+// @forward './../../utils/variables';
+@use 'variables' as *;
+
+$navigation_bar_height : 90px;
+$logo_font_size : 30px;
+
+.NavigationBar {
+    width: 100%;
+    height: $navigation_bar_height;
+}
+
+.NavigationBar_Container {
+    width: $media_default_screen_container;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.NavigationBar_Logo {
+    font-size: $logo_font_size;
+    font-weight: bold;
+}
+
+@media (max-width: $media_large_screen) {
+    .NavigationBar_Container {
+        width: $media_large_screen_container;
+    }
+}
+
