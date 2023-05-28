@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use 'helper/variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 body {
@@ -7,5 +7,36 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: $blue_default;
-  color: $white;
+  color: $gray;
+}
+
+.App_Container {
+  width: $media_default_screen_container;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.Link {
+  text-decoration: none;
+  color: $gray;
+}
+
+@media (max-width: $media_large_screen) {
+  .App_Container {
+      width: $media_medium_screen_container;
+  }
+}
+
+@media (max-width: $media_medium_screen) {
+  .App_Container {
+      width: $media_small_screen_container;
+  }
+}
+
+@media (max-width: $media_small_screen) {
+  .App_Container {
+    width: 100%;
+    padding: 20px;
+  }
 }

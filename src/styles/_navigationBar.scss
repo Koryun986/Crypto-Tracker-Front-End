@@ -1,10 +1,7 @@
-// @import url('./_variables.scss');
-// @use './../../utils/variables';
-// @forward './../../utils/variables';
-@use 'variables' as *;
+@use 'helper/variables' as *;
+@use 'helper/mixins' as *;
 
 $navigation_bar_height : 90px;
-$logo_font_size : 30px;
 
 .NavigationBar {
     width: 100%;
@@ -12,20 +9,32 @@ $logo_font_size : 30px;
 }
 
 .NavigationBar_Container {
-    width: $media_default_screen_container;
-    height: 100%;
-    margin: 0 auto;
-    padding: 20px 0;
+   @include justify-space-between;
 }
 
 .NavigationBar_Logo {
-    font-size: $logo_font_size;
+    font-size: $media_default_screen_big_font;
+    color: $white;
     font-weight: bold;
+    & img {
+        width: 20px;
+        height: 30px;
+    }   
 }
 
-@media (max-width: $media_large_screen) {
-    .NavigationBar_Container {
-        width: $media_large_screen_container;
+@media (min-width: $media_large_screen) {
+    .NavigationBar_Items {
+        & li:hover {
+            color: $white;
+        }
     }
 }
+  
+@media (max-width: $media_medium_screen) {
+    
+}
 
+@media (max-width: $media_small_screen) {
+  
+}
+  

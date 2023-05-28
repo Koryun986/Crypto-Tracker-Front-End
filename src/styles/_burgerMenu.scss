@@ -1,0 +1,84 @@
+@use "./helper/mixins" as *;
+@use "./helper/variables" as *;
+
+.BurgerMenu {
+    @include justify-space-between;
+    list-style: none;
+    & li {
+        font-weight: 500;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    & li:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.BurgerMenu_Button {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: $gray;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px;
+    cursor: pointer;
+
+    & div {
+        width: 100%;
+        height: 2.5px;
+        border-radius: 3px;
+        background-color: $blue_default;
+    }
+    & .BurgerMenu_Button_Open {
+        position: absolute;
+        display: none;
+    }
+
+    & .BurgerMenu_Button_Open:first-of-type {
+        display: block;
+        transform: rotate(45deg) translate(3px, 10px );
+    }
+    & .BurgerMenu_Button_Open:last-of-type {
+        display: block;
+        transform: rotate(-45deg) translate(-10px, 3px );
+    }
+}
+
+@media (min-width: $media_large_screen) {
+    .BurgerMenu {
+        & li:hover {
+            color: $white;
+        }
+    }
+}
+  
+@media (max-width: $media_medium_screen) {
+    .BurgerMenu_Button {
+        display: flex;
+    }
+    .BurgerMenu {
+        position: absolute;
+        left: -100%;
+        flex-direction: column;
+    }
+
+    .BurgerMenu_Active {
+        width: 100vw;
+        height: 100vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        background: $white_opacity;
+    }
+}
+
+@media (max-width: $media_small_screen) {
+  
+}
+  
