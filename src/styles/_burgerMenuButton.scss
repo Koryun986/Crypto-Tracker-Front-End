@@ -1,0 +1,41 @@
+@use "./helper/mixins" as *;
+@use "./helper/variables" as *;
+
+.BurgerMenu_Button {
+    display: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    background-color: $gray;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 5px;
+
+    & div {
+        width: 100%;
+        height: 2.5px;
+        border-radius: 3px;
+        background-color: $blue_default;
+    }
+    & .BurgerMenu_Button_Open {
+        position: absolute;
+        display: none;
+    }
+
+    & .BurgerMenu_Button_Open:first-of-type {
+        display: block;
+        transform: rotate(45deg) translate(3px, 10px );
+    }
+    & .BurgerMenu_Button_Open:last-of-type {
+        display: block;
+        transform: rotate(-45deg) translate(-10px, 3px );
+    }
+}
+
+@media (max-width: $media_medium_screen) {
+    .BurgerMenu_Button {
+        display: flex;
+    }
+}
